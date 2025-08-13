@@ -1,0 +1,12 @@
+# Exported from Render on 2025-06-03T15:51:39Z
+services:
+- type: web
+  name: bot-socorro-alexa
+  runtime: node
+  repo: https://github.com/nospamprl/bot-socorro-alexa
+  plan: free
+  region: oregon
+  buildCommand: npm install
+  startCommand: node index.js
+  autoDeployTrigger: commit
+version: "1"
