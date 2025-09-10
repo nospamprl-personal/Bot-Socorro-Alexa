@@ -22,7 +22,8 @@ const allContacts = {
       message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JOSEFINA.'
   }
   ],
-  jorge: [ // Agrega aquí los contactos de tu jorge    {
+  jorge: [ // Agrega aquí los contactos de tu jorge    
+    {
       phone: '5215530479667',
       apikey: '4944088',
       message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JORGE.'
