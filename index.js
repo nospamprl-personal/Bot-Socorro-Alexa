@@ -22,11 +22,26 @@ const allContacts = {
       message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JOSEFINA.'
   }
   ],
-  jorge: [ // Agrega aquí los contactos de tu jorge
+  jorge: [ // Agrega aquí los contactos de tu jorge    {
+      phone: '5215530479667',
+      apikey: '4944088',
+      message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JORGE.'
+    },
+    {
+      phone: '5215520958384',
+      apikey: '8160008',
+      message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JORGE.'
+    },
+    {
+      phone: '5215554313528',
+      apikey: '8824221',
+      message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JORGE.'
+    },
+
     {
       phone: '5215554134320', // Reemplazar
       apikey: '1711625',           // Reemplazar
-      message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de DON JORGE.' // Reemplazar
+      message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JORGE.' // Reemplazar
     }
   ]
   // Puedes agregar más usuarios aquí si quieres, ej: 'mama': [ ... ]
