@@ -97,6 +97,7 @@ app.post('/:user', async (req, res) => {
   const user = req.params.user;
   const contactsToSend = allContacts[user];
 
+  console.log("Alexa está llamando a:", req.originalUrl);
   console.log(`🗣️ Solicitud recibida desde Alexa para el usuario: ${user}`);
 
   // Si el usuario no existe en nuestra lista, no hacemos nada.
@@ -144,3 +145,4 @@ app.listen(port, () => {
   console.log(`🚀 Servidor activo en http://localhost:${port}`);
 
 });
+
