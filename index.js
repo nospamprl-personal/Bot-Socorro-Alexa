@@ -79,7 +79,7 @@ app.get('/uptimerobot', (req, res) => {
 
 // Ruta manual para disparar alerta (útil para pruebas)
 // Ahora puedes probarla así: /alerta?user=josefina o /alerta?user=jorge
-app.get('/alerta', (req, res) => {
+app.all('/alerta', (req, res) => {
   const user = req.query.user || 'josefina'; // 'josefina' es el usuario por defecto
   const contactsToSend = allContacts[user];
 
@@ -145,4 +145,5 @@ app.listen(port, () => {
   console.log(`🚀 Servidor activo en http://localhost:${port}`);
 
 });
+
 
