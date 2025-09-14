@@ -24,6 +24,11 @@ const allContacts = {
   ],
   jorge: [ // Agrega aquí los contactos de tu jorge    
     {
+      phone: '5215528862222',
+      apikey: '8560106',
+      message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JORGE.'
+    },
+    {
       phone: '5215530479667',
       apikey: '4944088',
       message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JORGE.'
@@ -137,4 +142,5 @@ app.post('/:user', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`🚀 Servidor activo en http://localhost:${port}`);
+
 });
