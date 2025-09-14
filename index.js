@@ -1,7 +1,5 @@
 const express = require('express');
 const axios = require('axios');
-// bodyParser está deprecado en versiones recientes de Express.
-// express.json() es el método recomendado.
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -53,18 +51,21 @@ const allContacts = {
 // Middleware para recibir JSON de Alexa
 app.use(express.json());
 
-// Función reutilizable para enviar notificaciones
-const sendNotifications = (contactsList = []) => {
-  console.log('🚨 Activando envío de mensajes...');
-  contactsList.forEach(async (contact) => {
+// --- CAMBIO CLAVE: Función de notificaciones corregida ---
+// Se reemplaza forEach por un bucle for...of que funciona correctamente con await.
+const sendNotifications = async (contactsList = []) => {
+  console.log('🚨 Activando envío de mensajes en secuencia...');
+  for (const contact of contactsList) {
     const url = `https://api.callmebot.com/whatsapp.php?phone=${contact.phone}&text=${encodeURIComponent(contact.message)}&apikey=${contact.apikey}`;
     try {
+      // await ahora pausará el bucle hasta que esta petición termine.
       const response = await axios.get(url);
       console.log(`✅ Mensaje enviado a ${contact.phone}: ${response.data}`);
+      await delay(1000); // Pequeña pausa opcional entre mensajes para no saturar
     } catch (error) {
       console.error(`❌ Error enviando a ${contact.phone}:`, error.message);
     }
-  });
+  }
 };
 
 // Ruta para verificar si el servidor está activo
@@ -78,7 +79,7 @@ app.get('/uptimerobot', (req, res) => {
 // Está diseñada para recibir el POST de Alexa.
 app.post('/:user', async (req, res) => {
   // Se lee el usuario correctamente desde los parámetros de la ruta.
-  const user = req.params.user; 
+  const user = req.params.user;
   const contactsToSend = allContacts[user];
 
   console.log("Alexa está llamando a:", req.originalUrl);
@@ -110,6 +111,7 @@ app.post('/:user', async (req, res) => {
     });
 
     // Envía las notificaciones usando la lista de contactos correcta
+    // Esta función ahora se ejecutará de forma predecible y en orden.
     sendNotifications(contactsToSend);
 
   } else {
@@ -128,6 +130,4 @@ app.post('/:user', async (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Servidor activo en http://localhost:${port}`);
 });
-
-
 
