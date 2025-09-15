@@ -15,7 +15,7 @@ const allContacts = {
     },
     {
       phone: '5215554134320',
-      apikey: '1711625',
+      apikey: '1711625X',
       message: '🚨 SOCORRO 🚨\nSe ha activado una alerta de emergencia de JOSEFINA.'
     }
   ],
@@ -125,5 +125,6 @@ app.post('/:user', async (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Servidor activo en http://localhost:${port}`);
 });
+
 
 
