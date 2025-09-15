@@ -10,7 +10,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const allContacts = {
   josefina: [
     { phone: '5215528862222', apikey: '8560106', message: '🚨 SOCORRO 🚨 Se ha activado una alerta de emergencia de JOSEFINA.' },
-    { phone: '5215554134320', apikey: '1711625X', message: '🚨 SOCORRO 🚨 Se ha activado una alerta de emergencia de JOSEFINA.' }
+    { phone: '5215554134320', apikey: '1711625', message: '🚨 SOCORRO 🚨 Se ha activado una alerta de emergencia de JOSEFINA.' }
   ],
   jorge: [
     { phone: '5215530479667', apikey: '4944088', message: '🚨 SOCORRO 🚨 Se ha activado una alerta de emergencia de JORGE.' },
@@ -92,3 +92,4 @@ app.post('/:user', async (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Servidor activo en http://localhost:${port}`);
 });
+
